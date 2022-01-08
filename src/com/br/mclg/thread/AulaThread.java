@@ -26,6 +26,30 @@ public class AulaThread {
 			}
 		}.start();// Start liga a thread que fica processando paralelamente por trás.
 
+		/*********************** DIVISÂO DAS THREADS ***********************/
+
+		// Thread em processamento em paralelo do envio de nota fiscal
+		new Thread() {
+
+			public void run() {
+
+				// Código da rotina para execução em paralelo 
+				for (int i = 0; i < 10; i++) {
+
+					// Quero excutar ess envio com tempo de parada, ou com tempo determinado
+					System.out.println("Executando alguma rotina, por exemplo envio de nota fiscal!");
+					try {
+						Thread.sleep(4000);
+					} catch (InterruptedException e) {
+						e.printStackTrace();
+					} // Tempo da thread
+
+				}
+				// Fim do código em paralelo 
+
+			};
+		}.start();// Start liga a thread que fica processando paralelamente
+		
 		// Código do sistema do usuário continua o fluxo de trabalho
 		System.out.println("FIM DA EXECUÇÂO DA THREAD!!!");
 		// Fluxo do sistema, cadastro de venda, uma emissão de nota fiscal
