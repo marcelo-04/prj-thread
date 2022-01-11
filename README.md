@@ -9,3 +9,6 @@ o usuário, quando temos um processo lento e demorado.
 
 As Threads estão presente em nossa vida a todo momento, por exemplo vários aplicativos no 
 smartphone mostrando notificação de e-mail, mensagens, navegador com várias abas e etc.
+
+## Objeto e o Runnable
+Diminuindo o código e trabalhando com objetos manipuláveis usando Runnable.
