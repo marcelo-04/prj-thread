@@ -17,4 +17,5 @@ Para interação do usuário, usando o swing.
 ## Aplicação Desktop com a Thread
 Trabalhando com GridBagConstraints gerenciador de posicionamento e layout.<br>
 Foram adicionando os botões JButton, e o alinhamento dos mesmos e desabilitado 
-os labels dos campos das Threads.
+os labels dos campos das Threads.<br>
+Controlando a Thread 1 com Start e Stop, foi feita a declaração global para acessar todos os campos das threads.
