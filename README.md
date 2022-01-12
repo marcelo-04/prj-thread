@@ -18,4 +18,6 @@ Para interação do usuário, usando o swing.
 Trabalhando com GridBagConstraints gerenciador de posicionamento e layout.<br>
 Foram adicionando os botões JButton, e o alinhamento dos mesmos e desabilitado 
 os labels dos campos das Threads.<br>
-Controlando a Thread 1 com Start e Stop, foi feita a declaração global para acessar todos os campos das threads.
+Controlando a Thread 1 com Start e Stop, foi feita a declaração global para acessar todos os campos das threads.<br>
+Controlando a Thread 2 com Start e Stop, na thread 2 teve uma intenção de criar uma lógica, tirando objeções para tirar dúvidas 
+de trabalhar com outra thread. Foi habilitado e desabilitado os botões Start e Stop para interação.
