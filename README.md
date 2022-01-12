@@ -16,5 +16,5 @@ Diminuindo o código e trabalhando com objetos manipuláveis usando Runnable.
 ## Criando um tela Gráfica com JDialog
 Para interação do usuário, usando o swing.
 
-## Sisteminha Desktop com a Thread
+## Aplicação Desktop com a Thread
 Trabalhando com GridBagConstraints gerenciador de posicionamento e layout.
