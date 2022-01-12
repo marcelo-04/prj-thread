@@ -12,3 +12,6 @@ smartphone mostrando notificação de e-mail, mensagens, navegador com várias a
 
 ## Objeto e o Runnable
 Diminuindo o código e trabalhando com objetos manipuláveis usando Runnable.
+
+## Criando um tela Gráfica com JDialog
+Para interação do usuário, usando o swing.
