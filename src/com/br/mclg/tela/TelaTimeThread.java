@@ -7,8 +7,6 @@ import java.awt.GridBagLayout;
 import java.awt.Insets;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.text.SimpleDateFormat;
-import java.util.Calendar;
 
 import javax.swing.JButton;
 import javax.swing.JDialog;
@@ -21,48 +19,16 @@ public class TelaTimeThread extends JDialog {
 	// Painel de componentes
 	private JPanel jPanel = new JPanel(new GridBagLayout());
 
-	private JLabel hora = new JLabel("Time Thread 1");
+	private JLabel hora = new JLabel("Nome");
 	private JTextField tempo = new JTextField();
 
-	private JLabel hora2 = new JLabel("Time Thread 2");
+	private JLabel hora2 = new JLabel("E-mail");
 	private JTextField tempo2 = new JTextField();
 
-	private JButton jButton = new JButton("Start");
+	private JButton jButton = new JButton("Gerar");
 	private JButton jButton2 = new JButton("Stop");
-
-	private Runnable thread1 = new Runnable() {
-
-		@Override
-		public void run() {
-			while (true) { // fica sempre rodando
-				tempo.setText(new SimpleDateFormat("dd/MM/yyyy hh:mm:ss").format(Calendar.getInstance().getTime()));
-				try {
-					Thread.sleep(1000);// esse comando e para não travar o sistema
-				} catch (InterruptedException e) {
-					e.printStackTrace();
-				}
-			}
-		}
-	};
-
-	private Runnable thread2 = new Runnable() {
-
-		@Override
-		public void run() {
-			while (true) { // fica sempre rodando
-				tempo2.setText(new SimpleDateFormat("dd/MM/yyyy hh:mm:ss").
-						format(Calendar.getInstance().getTime()));
-				try {
-					Thread.sleep(1000);// esse comando e para não travar o sistema
-				} catch (InterruptedException e) {
-					e.printStackTrace();
-				}
-			}
-		}
-	};
-
-	private Thread thread1Time;
-	private Thread thread2Time;
+	
+	private ImplementacaoFilaThread fila = new ImplementacaoFilaThread();
 
 	// Executa o que tiver dentro no momneto da abertura ou execução.
 	public TelaTimeThread() {
@@ -85,7 +51,6 @@ public class TelaTimeThread extends JDialog {
 
 		tempo.setPreferredSize(new Dimension(200, 25));
 		gridBagConstraints.gridy++;
-		tempo.setEditable(false);
 		jPanel.add(tempo, gridBagConstraints);
 
 		hora2.setPreferredSize(new Dimension(200, 25));
@@ -94,7 +59,6 @@ public class TelaTimeThread extends JDialog {
 
 		tempo2.setPreferredSize(new Dimension(200, 25));
 		gridBagConstraints.gridy++;
-		tempo2.setEditable(false);
 		jPanel.add(tempo2, gridBagConstraints);
 
 		// *******************************************
@@ -113,15 +77,11 @@ public class TelaTimeThread extends JDialog {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-
-				thread1Time = new Thread(thread1);
-				thread1Time.start();
+				ObjetoFilaThread filaThread = new ObjetoFilaThread();
+				filaThread.setNome(tempo.getText());
+				filaThread.setEmail(tempo2.getText());
 				
-				thread2Time = new Thread(thread2);
-				thread2Time.start();
-				
-				jButton.setEnabled(false);
-				jButton2.setEnabled(true);
+				fila.add(filaThread);
 			}
 		});
 
@@ -129,15 +89,12 @@ public class TelaTimeThread extends JDialog {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				thread1Time.stop();
-				thread2Time.stop();
-				jButton.setEnabled(true);
-				jButton2.setEnabled(false);
+				
 			}
 		});
 		
-		jButton2.setEnabled(false);
-
+		fila.start();
+		
 		add(jPanel, BorderLayout.WEST);
 		// esse comando torna a tela visível para o usuário.
 		setVisible(true);
