@@ -27,3 +27,7 @@ Criando a classe ObjetoFilaThread que é uma thread, para isso foi criado um mé
 a classe ConcurrentLinkedQueue para uma thread concurrent, também foi craido o método run(), para o processo interagir com 
 lista, enquanto tiver dados pega o objetoFilaThread da lista atual para processar alguma coisa, terminou remove e dar um 
 tempo pra descarga de memória.
+
+## Implementação do processo de Fila e Pilha
+Foram retiradas todas threads da classe TelaTimeThread para criação de uma nova tela, para implementação da Fila e 
+Pilha com thread.
